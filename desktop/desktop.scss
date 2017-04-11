@@ -66,23 +66,7 @@
             font-weight: normal;
         }
         a.heatmap-high {
-            color: #c66 !important;
-            //font-weight: bold;
-            
-        }
-        a.heatmap-high1:after{
-            content: "";
-            background-color: #e55;
-            color: white;
-            border-radius: 5px;
-            //padding: 1px 5px;
-            left: 75px;
-            font-size: 12px;
-            font-weight: bold;
-            position: absolute;
-            height: 9px;
-            width: 9px;
-            top: 28px;
+            color: #c66 !important;   
         }
         width: 100px;
     }
@@ -102,10 +86,6 @@
 .badge-category-bg {
     opacity: 0.8;
 }
-
- .badge-wrapper .badge-category {
-    //  color: #333 !important;
- }
 
 .topic-list .badge-wrapper.bar {
     .badge-category {
@@ -132,11 +112,9 @@
     width: auto;
 }
 
-
 /* topic page */
 #topic-progress {
     background-color: #f1f1f1;
-    //border: 1px solid #e2e2e2;
     color: #666;
     font-weight: normal;
     .bg {
@@ -165,7 +143,6 @@ nav.post-controls button.has-like {
     margin-top: -2px;
 }
 
-
 img.avatar {
     border-radius: 3px;
 }
@@ -177,4 +154,3 @@ img.avatar {
 .topic-list a.title.visited:not(.badge-notification) {
     color: #6644aa;
 }
-
