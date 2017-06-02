@@ -1,14 +1,12 @@
 <script type='text/x-handlebars' data-template-name='list/topic-list-item.raw'>
 
 <td class='main-link clearfix'>
-
   {{raw "topic-status" topic=topic}}
   {{topic-link topic}}
   {{#if controller.showTopicPostBadges}}
     {{raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl}}
   {{/if}}
-
-
+  {{discourse-tags topic mode="list"}}
   {{raw "list/topic-excerpt" topic=model}}
   <div class='creator'>
   {{#if showCategory}}
