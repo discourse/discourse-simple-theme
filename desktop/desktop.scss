@@ -131,14 +131,6 @@ nav.post-controls button.has-like {
     color: #08c;
 }
 
-.title-wrapper .discourse-tag {
-    border-radius: 5px !important;
-    border: 0px solid #D0D0D0 !important;
-    padding: 1px 6px !important;
-    color: #1D1D1D !important;
-    background-color: #F1F1F1 !important;
-}
-
 .badge-wrapper.bullet span.badge-category {
     color: #333 !important;
 }
@@ -158,4 +150,11 @@ img.avatar {
 
 .topic-list a.title.visited:not(.badge-notification) {
     color: #6644aa;
+}
+
+
+.topic-list-item .discourse-tags {
+    font-size: 0.75em;
+    display: inline-block;
+    margin-left: 5px;
 }
