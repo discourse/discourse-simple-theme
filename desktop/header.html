@@ -1,5 +1,11 @@
 <script type='text/x-handlebars' data-template-name='list/topic-list-item.raw'>
 
+{{#if bulkSelectEnabled}}
+<td class='star'>
+  <input type='checkbox' class='bulk-select'>
+</td>
+{{/if}}
+
 <td class='main-link clearfix'>
   {{raw "topic-status" topic=topic}}
   {{topic-link topic}}
@@ -49,7 +55,14 @@
 </script>
 
 <script type='text/x-handlebars' data-template-name='topic-list-header.raw'>
-  {{raw "topic-list-header-column" order='posts' name='topic.title'}}
+  {{#if bulkSelectEnabled}}
+  <th class='star'>
+    {{#if canBulkSelect}}
+        <button class='btn bulk-select' title='{{i18n "topics.bulk.toggle"}}'><i class='fa fa-list'></i></button>
+    {{/if}}
+  </th>
+  {{/if}}
+  {{raw "topic-list-header-column" order='default' name='topic.title' bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
   
   {{#if showLikes}}
      {{raw "topic-list-header-column" sortable='true' order='likes' number='true' forceName='Likes'}}
