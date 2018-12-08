@@ -158,3 +158,11 @@ img.avatar {
     display: inline-block;
     margin-left: 5px;
 }
+
+body {
+.topic-list-item.visited a.badge-wrapper, 
+.latest-topic-list-item.visited a.badge-wrapper, 
+.category-topic-link.visited a.badge-wrapper {
+    opacity: 1;
+}
+}
