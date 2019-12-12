@@ -25,14 +25,12 @@
    </div>
 </td>
 
-
-
 {{#if controller.showLikes}}
 <td class="num likes">
   {{number topic.like_count}} <i class='fa fa-heart'></i>
 </td>
 {{/if}}
-   
+
 {{#if controller.showOpLikes}}
 <td class="num likes">
   {{number topic.op_like_count}} <i class='fa fa-heart'></i>
@@ -63,15 +61,15 @@
   </th>
   {{/if}}
   {{raw "topic-list-header-column" order='default' name='topic.title' bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
-  
+
   {{#if showLikes}}
-     {{raw "topic-list-header-column" sortable='true' order='likes' number='true' forceName='Likes'}}
+     {{raw "topic-list-header-column" sortable='true' order='likes' number='true' forceName=(theme-i18n 'likes')}}
   {{/if}}
   {{#if showOpLikes}}
-     {{raw "topic-list-header-column" sortable='true' order='op_likes' number='true' forceName='Likes'}}
+     {{raw "topic-list-header-column" sortable='true' order='op_likes' number='true' forceName=(theme-i18n 'likes')}}
   {{/if}}
-  {{raw "topic-list-header-column" sortable='true' number='true' order='posts' forceName='Replies'}}
-  {{raw "topic-list-header-column" sortable='true' order='activity' forceName='Last Post'}}
+  {{raw "topic-list-header-column" sortable='true' number='true' order='posts' forceName=(theme-i18n 'replies') }}
+  {{raw "topic-list-header-column" sortable='true' order='activity' forceName=(theme-i18n 'last_post')}}
 </script>
 
 <script>
@@ -88,7 +86,7 @@ TopicListItemView.reopen({
                 this.get('topic.category.name') !== 'uncategorized';
     }.property()
 });
-   
+
 })();
- 
+
 </script>
