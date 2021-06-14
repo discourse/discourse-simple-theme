@@ -7,7 +7,7 @@
 }
 
 .topic-list a.title:not(.badge-notification) {
-  color: #3b5998;
+  color: var(--simple-theme-link-color);
   font-weight: normal;
   font-family: "Helvetica Neue", Helvetica, Arial, Utkal, sans-serif;
   font-size: 18px;
