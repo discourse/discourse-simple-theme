@@ -1,0 +1,17 @@
+{{~raw-plugin-outlet name="topic-list-header-before"~}}
+{{#if bulkSelectEnabled}}
+  <th class="bulk-select">
+    {{#if canBulkSelect}}
+      {{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
+    {{/if}}
+  </th>
+{{/if}}
+{{raw "topic-list-header-column" order='default' name='topic.title' bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
+{{#if showLikes}}
+    {{raw "topic-list-header-column" sortable='true' order='likes' number='true' forceName=(theme-i18n 'likes')}}
+{{/if}}
+{{#if showOpLikes}}
+    {{raw "topic-list-header-column" sortable='true' order='op_likes' number='true' forceName=(theme-i18n 'likes')}}
+{{/if}}
+{{raw "topic-list-header-column" sortable='true' number='true' order='posts' forceName=(theme-i18n 'replies') }}
+{{raw "topic-list-header-column" sortable='true' order='activity' forceName=(theme-i18n 'last_post')}}

@@ -96,7 +96,7 @@
 
 .topic-list .badge-wrapper.bar {
   .badge-category {
-    color: #9a9a9a !important;
+    color: var(--primary-medium) !important;
     font-weight: 600;
     font-size: 12px;
     padding: 2px 6px;
@@ -109,6 +109,7 @@
 .last-post {
   .poster-avatar {
     margin-right: 10px;
+    margin-top: 5px;
   }
   .poster-avatar,
   .poster-info {
@@ -123,7 +124,7 @@
 /* topic page */
 
 nav.post-controls button.has-like {
-  color: #08c;
+  color: var(--tertiary);
 }
 
 .creator .badge-wrapper.bullet span.badge-category {
@@ -144,7 +145,6 @@ img.avatar {
 
 .topic-list-item .discourse-tags {
   font-size: 0.75em;
-  display: inline-block;
   margin-left: 5px;
 }
 
