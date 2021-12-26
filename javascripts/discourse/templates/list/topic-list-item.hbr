@@ -8,7 +8,7 @@
   </td>
 {{/if}}
 
-<td class='main-link clearfix'>
+<td class='main-link clearfix topic-list-data'>
   {{~raw-plugin-outlet name="topic-list-before-status"}}
   {{raw "topic-status" topic=topic}}
   {{~topic-link topic class="raw-link raw-topic-link"}}
