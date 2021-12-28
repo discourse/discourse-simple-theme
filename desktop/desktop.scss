@@ -2,10 +2,6 @@
   background-color: var(--secondary);
 }
 
-.topic-list > .topic-list-body .topic-list-item:not(.last-visit):not(.topic-list-item-separator) .topic-list-data {
-  border-bottom: 1px solid var(--primary-low);
-}
-
 .topic-list .topic-list-data a.title:not(.badge-notification) {
   color: var(--simple-theme-link-color);
   font-weight: normal;
