@@ -26,7 +26,7 @@
       {{/unless}}
     {{/unless}}
     {{~#if topic.creator ~}}
-      <a href="/users/{{topic.creator.username}}" data-auto-route="true" data-user-card="{{topic.creator.username}}">{{topic.creator.username}}</a> <a href={{topic.url}}>{{format-date topic.createdAt format="tiny"}}</a>
+      <a href="/u/{{topic.creator.username}}" data-auto-route="true" data-user-card="{{topic.creator.username}}">{{topic.creator.username}}</a> <a href={{topic.url}}>{{format-date topic.createdAt format="tiny"}}</a>
     {{~/if ~}}
     {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
   </div>
@@ -62,6 +62,6 @@
     <a href="{{topic.lastPostUrl}}">
       {{format-date topic.bumpedAt format="tiny"}}
     </a>
-    <span class='editor'><a href="/users/{{topic.last_poster_username}}" data-auto-route="true" data-user-card="{{topic.last_poster_username}}">{{topic.last_poster_username}}</a></span>
+    <span class='editor'><a href="/u/{{topic.last_poster_username}}" data-auto-route="true" data-user-card="{{topic.last_poster_username}}">{{topic.last_poster_username}}</a></span>
   </div>
 </td>
