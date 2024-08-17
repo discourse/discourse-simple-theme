@@ -141,16 +141,28 @@ export default {
 
   initialize() {
     withPluginApi("1.35.0", (api) => {
-      api.topicListHeaderColumns.delete("posters");
-      api.topicListHeaderColumns.delete("views");
-      api.topicListHeaderColumns.reposition("replies", { before: "activity" });
-      api.topicListHeaderColumns.replace("activity", ActivityHeader);
+      api.registerValueTransformer(
+        "topic-list-header-columns",
+        ({ value: columns }) => {
+          columns.delete("posters");
+          columns.delete("views");
+          columns.reposition("replies", { before: "activity" });
+          columns.replace("activity", ActivityHeader);
+          return columns;
+        }
+      );
 
-      api.topicListItemColumns.replace("topic", TopicCell);
-      api.topicListItemColumns.delete("posters");
-      api.topicListItemColumns.delete("views");
-      api.topicListItemColumns.reposition("replies", { before: "activity" });
-      api.topicListItemColumns.replace("activity", ActivityColumn);
+      api.registerValueTransformer(
+        "topic-list-item-columns",
+        ({ value: columns }) => {
+          columns.replace("topic", TopicCell);
+          columns.delete("posters");
+          columns.delete("views");
+          columns.reposition("replies", { before: "activity" });
+          columns.replace("activity", ActivityColumn);
+          return columns;
+        }
+      );
     });
   },
 };
