@@ -44,8 +44,8 @@ class TopicCell extends CoreTopicCell {
       <TopicStatus @topic={{@topic}} />
       {{~! no whitespace ~}}
       <TopicLink
-        {{on "focus" this.onTitleFocus}}
-        {{on "blur" this.onTitleBlur}}
+        {{on "focus" @onTitleFocus}}
+        {{on "blur" @onTitleBlur}}
         @topic={{@topic}}
         class="raw-link raw-topic-link"
       />
@@ -56,22 +56,22 @@ class TopicCell extends CoreTopicCell {
       />
       {{~! no whitespace ~}}
       <UnreadIndicator
-        @includeUnreadIndicator={{this.includeUnreadIndicator}}
+        @includeUnreadIndicator={{@includeUnreadIndicator}}
         @topicId={{@topic.id}}
-        class={{this.unreadClass}}
+        class={{@unreadClass}}
       />
       {{~#if @showTopicPostBadges~}}
         <TopicPostBadges
           @unreadPosts={{@topic.unread_posts}}
           @unseen={{@topic.unseen}}
-          @newDotText={{this.newDotText}}
+          @newDotText={{@newDotText}}
           @url={{@topic.lastUnreadUrl}}
         />
       {{~/if}}
 
       {{discourseTags @topic mode="list" tagsForUser=@tagsForUser}}
 
-      {{#if this.expandPinned}}
+      {{#if @expandPinned}}
         <TopicExcerpt @topic={{@topic}} />
       {{/if}}
 
