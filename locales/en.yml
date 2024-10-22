@@ -1,4 +1,3 @@
 en:
-  replies: Replies
-  last_post: Last Post
-  likes: Likes
+  theme_metadata:
+    description: "Simplified front page design with classic colors and typography"
