@@ -1,4 +1,4 @@
-{{~raw-plugin-outlet name="topic-list-before-columns"}}
+{{!-- has-modern-replacement --}}{{~raw-plugin-outlet name="topic-list-before-columns"}}
 
 {{#if bulkSelectEnabled}}
   <td class="bulk-select topic-list-data">
