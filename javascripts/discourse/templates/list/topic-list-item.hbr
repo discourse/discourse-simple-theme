@@ -1,0 +1,67 @@
+{{~raw-plugin-outlet name="topic-list-before-columns"}}
+
+{{#if bulkSelectEnabled}}
+  <td class="bulk-select topic-list-data">
+    <label for="bulk-select-{{topic.id}}">
+      <input type="checkbox" class="bulk-select" id="bulk-select-{{topic.id}}">
+    </label>
+  </td>
+{{/if}}
+
+<td class='main-link clearfix topic-list-data'>
+  {{~raw-plugin-outlet name="topic-list-before-status"}}
+  {{raw "topic-status" topic=topic}}
+  {{~topic-link topic class="raw-link raw-topic-link"}}
+  {{~#if showTopicPostBadges}}
+    {{~raw "topic-post-badges" unreadPosts=topic.unread_posts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
+  {{~/if}}
+  {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
+  {{#if expandPinned}}
+    {{raw "list/topic-excerpt" topic=topic}}
+  {{/if}}
+  <div class='creator'>
+    {{#unless hideCategory}}
+      {{#unless topic.isPinnedUncategorized}}
+        {{category-link topic.category}}
+      {{/unless}}
+    {{/unless}}
+    {{~#if topic.creator ~}}
+      <a href="/u/{{topic.creator.username}}" data-auto-route="true" data-user-card="{{topic.creator.username}}">{{topic.creator.username}}</a> <a href={{topic.url}}>{{format-date topic.createdAt format="tiny"}}</a>
+    {{~/if ~}}
+    {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
+  </div>
+</td>
+
+{{#if showLikes}}
+  <td class="num likes topic-list-data">
+    {{#if hasLikes}}
+      <a href='{{topic.summaryUrl}}'>
+        {{number topic.like_count}} {{d-icon "heart"}}
+      </a>
+    {{/if}}
+  </td>
+{{/if}}
+
+{{#if showOpLikes}}
+  <td class="num likes topic-list-data">
+    {{#if hasOpLikes}}
+      <a href='{{topic.summaryUrl}}'>
+        {{number topic.op_like_count}} {{d-icon "heart"}}
+      </a>
+    {{/if}}
+  </td>
+{{/if}}
+
+{{raw "list/posts-count-column" topic=topic}}
+
+<td class="last-post topic-list-data">
+  <div class='poster-avatar'>
+    <a href="{{topic.lastPostUrl}}" data-user-card="{{topic.last_poster_username}}">{{avatar topic.lastPosterUser imageSize="medium"}}</a>
+  </div>
+  <div class='poster-info'>
+    <a href="{{topic.lastPostUrl}}">
+      {{format-date topic.bumpedAt format="tiny"}}
+    </a>
+    <span class='editor'><a href="/u/{{topic.last_poster_username}}" data-auto-route="true" data-user-card="{{topic.last_poster_username}}">{{topic.last_poster_username}}</a></span>
+  </div>
+</td>
