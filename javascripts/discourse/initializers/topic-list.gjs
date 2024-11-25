@@ -2,10 +2,10 @@ import { hash } from "@ember/helper";
 import { on } from "@ember/modifier";
 import PluginOutlet from "discourse/components/plugin-outlet";
 import ActionList from "discourse/components/topic-list/action-list";
+import SortableColumn from "discourse/components/topic-list/header/sortable-column";
 import CoreItemTopicCell from "discourse/components/topic-list/item/topic-cell";
 import TopicExcerpt from "discourse/components/topic-list/topic-excerpt";
 import TopicLink from "discourse/components/topic-list/topic-link";
-import SortableColumn from "discourse/components/topic-list/header/sortable-column";
 import UnreadIndicator from "discourse/components/topic-list/unread-indicator";
 import TopicPostBadges from "discourse/components/topic-post-badges";
 import TopicStatus from "discourse/components/topic-status";
@@ -14,7 +14,7 @@ import categoryLink from "discourse/helpers/category-link";
 import discourseTags from "discourse/helpers/discourse-tags";
 import formatDate from "discourse/helpers/format-date";
 import { withPluginApi } from "discourse/lib/plugin-api";
-import i18n from "discourse-common/helpers/i18n";
+import { i18n } from "discourse-i18n";
 
 class ItemTopicCell extends CoreItemTopicCell {
   <template>
