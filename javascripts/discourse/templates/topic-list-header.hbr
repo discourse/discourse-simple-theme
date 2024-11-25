@@ -1,4 +1,4 @@
-<tr class="topic-list-header-row">
+{{!-- has-modern-replacement --}}<tr class="topic-list-header-row">
   {{~raw-plugin-outlet name="topic-list-header-before"~}}
   {{#if bulkSelectEnabled}}
     <div class="bulk-select">

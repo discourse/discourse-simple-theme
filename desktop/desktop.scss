@@ -17,7 +17,6 @@
 .topic-list .editor {
   font-size: 13px;
   display: block;
-  margin-top: 3px;
 }
 
 .topic-list .main-link {
@@ -108,13 +107,14 @@
 }
 
 .last-post {
-  .poster-avatar {
-    margin-right: 10px;
-    margin-top: 5px;
-  }
+  display: flex;
+  gap: 10px;
+
   .poster-avatar,
   .poster-info {
-    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 }
 
