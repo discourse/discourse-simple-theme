@@ -2,10 +2,10 @@ import { hash } from "@ember/helper";
 import { on } from "@ember/modifier";
 import PluginOutlet from "discourse/components/plugin-outlet";
 import ActionList from "discourse/components/topic-list/action-list";
-import CoreTopicCell from "discourse/components/topic-list/topic-cell";
+import CoreItemTopicCell from "discourse/components/topic-list/item/topic-cell";
 import TopicExcerpt from "discourse/components/topic-list/topic-excerpt";
 import TopicLink from "discourse/components/topic-list/topic-link";
-import TopicListHeaderColumn from "discourse/components/topic-list/topic-list-header-column";
+import SortableColumn from "discourse/components/topic-list/header/sortable-column";
 import UnreadIndicator from "discourse/components/topic-list/unread-indicator";
 import TopicPostBadges from "discourse/components/topic-post-badges";
 import TopicStatus from "discourse/components/topic-status";
@@ -16,18 +16,7 @@ import formatDate from "discourse/helpers/format-date";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import i18n from "discourse-common/helpers/i18n";
 
-const ActivityHeader = <template>
-  <TopicListHeaderColumn
-    @sortable={{@sortable}}
-    @order="activity"
-    @activeOrder={{@order}}
-    @changeSort={{@changeSort}}
-    @ascending={{@ascending}}
-    @forceName={{i18n (themePrefix "last_post")}}
-  />
-</template>;
-
-class TopicCell extends CoreTopicCell {
+class ItemTopicCell extends CoreItemTopicCell {
   <template>
     <td class="main-link clearfix topic-list-data" colspan="1">
       <PluginOutlet
@@ -44,8 +33,8 @@ class TopicCell extends CoreTopicCell {
       <TopicStatus @topic={{@topic}} />
       {{~! no whitespace ~}}
       <TopicLink
-        {{on "focus" @onTitleFocus}}
-        {{on "blur" @onTitleBlur}}
+        {{on "focus" this.onTitleFocus}}
+        {{on "blur" this.onTitleBlur}}
         @topic={{@topic}}
         class="raw-link raw-topic-link"
       />
@@ -55,11 +44,7 @@ class TopicCell extends CoreTopicCell {
         @outletArgs={{hash topic=@topic}}
       />
       {{~! no whitespace ~}}
-      <UnreadIndicator
-        @includeUnreadIndicator={{@includeUnreadIndicator}}
-        @topicId={{@topic.id}}
-        class={{@unreadClass}}
-      />
+      <UnreadIndicator @topic={{@topic}} />
       {{~#if @showTopicPostBadges~}}
         <TopicPostBadges
           @unreadPosts={{@topic.unread_posts}}
@@ -92,10 +77,9 @@ class TopicCell extends CoreTopicCell {
             data-auto-route="true"
             data-user-card={{@topic.creator.username}}
           >{{@topic.creator.username}}</a>
-          <a href={{@topic.url}}>{{formatDate
-              @topic.createdAt
-              format="tiny"
-            }}</a>
+          <a href={{@topic.url}}>
+            {{~formatDate @topic.createdAt format="tiny"~}}
+          </a>
         {{~/if~}}
 
         <ActionList
@@ -113,7 +97,18 @@ class TopicCell extends CoreTopicCell {
   </template>
 }
 
-const ActivityColumn = <template>
+const HeaderActivityCell = <template>
+  <SortableColumn
+    @sortable={{@sortable}}
+    @order="activity"
+    @activeOrder={{@order}}
+    @changeSort={{@changeSort}}
+    @ascending={{@ascending}}
+    @forceName={{i18n (themePrefix "last_post")}}
+  />
+</template>;
+
+const ItemActivityCell = <template>
   <td class="last-post topic-list-data">
     <div class="poster-avatar">
       <a
@@ -142,24 +137,16 @@ export default {
   initialize() {
     withPluginApi("1.35.0", (api) => {
       api.registerValueTransformer(
-        "topic-list-header-columns",
+        "topic-list-columns",
         ({ value: columns }) => {
+          columns.replace("topic", { item: ItemTopicCell });
           columns.delete("posters");
           columns.delete("views");
           columns.reposition("replies", { before: "activity" });
-          columns.replace("activity", ActivityHeader);
-          return columns;
-        }
-      );
-
-      api.registerValueTransformer(
-        "topic-list-item-columns",
-        ({ value: columns }) => {
-          columns.replace("topic", TopicCell);
-          columns.delete("posters");
-          columns.delete("views");
-          columns.reposition("replies", { before: "activity" });
-          columns.replace("activity", ActivityColumn);
+          columns.replace("activity", {
+            header: HeaderActivityCell,
+            item: ItemActivityCell,
+          });
           return columns;
         }
       );
