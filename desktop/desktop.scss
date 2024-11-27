@@ -91,7 +91,7 @@
 
     &.visited {
       .topic-list-data a.title:not(.badge-notification) {
-        color: var(--quaternary);
+        color: var(--simple-theme-visited-link-color);
       }
     }
   }
