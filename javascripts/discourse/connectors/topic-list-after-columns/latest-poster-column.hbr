@@ -1,13 +1,15 @@
-<td class="last-post topic-list-data">
-  <div class="last-post__contents">
-    <div class='poster-avatar'>
-      <a href="{{context.topic.lastPostUrl}}" data-user-card="{{context.topic.last_poster_username}}">{{avatar context.topic.lastPosterUser imageSize="medium"}}</a>
+{{#if context.site.desktopView}}
+  <td class="last-post topic-list-data">
+    <div class="last-post__contents">
+      <div class='poster-avatar'>
+        <a href="{{context.topic.lastPostUrl}}" data-user-card="{{context.topic.last_poster_username}}">{{avatar context.topic.lastPosterUser imageSize="medium"}}</a>
+      </div>
+      <div class='poster-info'>
+        <a href="{{context.topic.lastPostUrl}}">
+          {{format-date context.topic.bumpedAt format="tiny"}}
+        </a>
+        <span class='editor'><a href="/u/{{context.topic.last_poster_username}}" data-auto-route="true" data-user-card="{{topic.last_poster_username}}">{{context.topic.last_poster_username}}</a></span>
+      </div>
     </div>
-    <div class='poster-info'>
-      <a href="{{context.topic.lastPostUrl}}">
-        {{format-date context.topic.bumpedAt format="tiny"}}
-      </a>
-      <span class='editor'><a href="/u/{{context.topic.last_poster_username}}" data-auto-route="true" data-user-card="{{topic.last_poster_username}}">{{context.topic.last_poster_username}}</a></span>
-    </div>
-  </div>
-</td>
+  </td>
+{{/if}}
