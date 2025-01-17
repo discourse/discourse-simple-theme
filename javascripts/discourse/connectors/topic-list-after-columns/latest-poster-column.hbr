@@ -1,3 +1,4 @@
+{{!-- has-modern-replacement --}}
 {{#if context.site.desktopView}}
   <td class="last-post topic-list-data">
     <div class="last-post__contents">
@@ -8,7 +9,7 @@
         <a href="{{context.topic.lastPostUrl}}">
           {{format-date context.topic.bumpedAt format="tiny"}}
         </a>
-        <span class='editor'><a href="/u/{{context.topic.last_poster_username}}" data-auto-route="true" data-user-card="{{topic.last_poster_username}}">{{context.topic.last_poster_username}}</a></span>
+        <span class='editor'><a href="/u/{{context.topic.last_poster_username}}" data-auto-route="true" data-user-card="{{context.topic.last_poster_username}}">{{context.topic.last_poster_username}}</a></span>
       </div>
     </div>
   </td>
