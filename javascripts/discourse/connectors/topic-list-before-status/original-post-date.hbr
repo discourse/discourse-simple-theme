@@ -1,5 +1,0 @@
-{{#if context.site.desktopView}}
-   {{~#if context.topic.creator ~}}
-      <span class="op-data"><a href="/u/{{context.topic.creator.username}}" data-auto-route="true" data-user-card="{{context.topic.creator.username}}">{{context.topic.creator.username}}</a> <a class="op-date" href={{topic.url}}>{{format-date context.topic.createdAt format="tiny"}}</a></span>
-   {{~/if ~}}
-{{/if}}
