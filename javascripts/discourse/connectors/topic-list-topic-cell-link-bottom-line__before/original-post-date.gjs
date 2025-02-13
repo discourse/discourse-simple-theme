@@ -9,7 +9,6 @@ export default class OriginalPostDate extends Component {
     {{~#if this.site.desktopView~}}
       {{~#if @outletArgs.topic.creator~}}
         <span class="op-data">
-          {{~! no whitespace ~}}
           <a
             href="/u/{{@outletArgs.topic.creator.username}}"
             data-auto-route="true"
@@ -18,7 +17,6 @@ export default class OriginalPostDate extends Component {
           <a class="op-date" href={{@outletArgs.topic.url}}>
             {{formatDate @outletArgs.topic.createdAt format="tiny"}}
           </a>
-          {{~! no whitespace ~}}
         </span>
       {{~/if~}}
     {{~/if~}}

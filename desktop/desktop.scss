@@ -93,7 +93,6 @@
   }
 
   .main-link a.title {
-    display: inline-block;
     line-height: var(--line-height-medium);
     padding: 0;
     margin-top: 0.15em;
@@ -105,7 +104,6 @@
 
   .discourse-tags {
     align-self: end;
-    margin-left: 0.5em;
     .discourse-tag {
       color: var(--primary-medium);
     }
@@ -118,18 +116,16 @@
   .link-bottom-line {
     font-size: var(--font-down-2);
     margin-top: 0.25em;
+    gap: 0 0.5em;
   }
 
   .op-data {
     display: flex;
-    width: 100%;
-    font-size: var(--font-down-3);
-    align-self: end;
+    font-size: var(--font-down-1);
+    align-self: baseline;
+    gap: 0.25em 0.5em;
     a {
       color: var(--primary-medium);
-    }
-    .op-date {
-      margin-left: 0.5em;
     }
   }
 
