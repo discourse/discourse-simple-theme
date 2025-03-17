@@ -11,18 +11,23 @@
   .main-link {
     width: auto;
   }
+
   .posts {
     width: auto;
   }
+
   .views {
     display: none;
   }
+
   .activity {
     display: none;
   }
+
   .posters {
     display: none;
   }
+
   .last-post {
     width: 10em;
 
@@ -47,6 +52,7 @@
     .editor {
       font-size: var(--font-down-1);
       min-width: 0;
+
       @include ellipsis;
 
       a {
@@ -60,6 +66,7 @@
       .excerpt {
         margin: 0;
       }
+
       .excerpt__contents {
         font-size: var(--font-down-1);
         max-width: unset;
@@ -69,6 +76,7 @@
     .topic-list-data {
       a.title:not(.badge-notification) {
         color: var(--simple-theme-link-color);
+
         &:hover {
           text-decoration: underline;
         }
@@ -100,6 +108,7 @@
 
   .discourse-tags {
     align-self: end;
+
     .discourse-tag {
       color: var(--primary-medium);
     }
@@ -120,6 +129,7 @@
     font-size: var(--font-down-1);
     align-self: baseline;
     gap: 0.25em 0.5em;
+
     a {
       color: var(--primary-medium);
     }
@@ -131,7 +141,6 @@
 }
 
 /* topic page */
-
 nav.post-controls .actions .double-button button.has-like .d-icon {
   color: var(--simple-theme-link-color);
 }
