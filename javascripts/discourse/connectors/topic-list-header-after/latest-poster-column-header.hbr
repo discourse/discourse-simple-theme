@@ -1,4 +1,0 @@
-{{!-- has-modern-replacement --}}
-{{#if context.site.desktopView}}
-  {{raw "topic-list-header-column" order='last-post' name='user.last_posted'}}
-{{/if}}
