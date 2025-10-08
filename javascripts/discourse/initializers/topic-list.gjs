@@ -43,7 +43,7 @@ export default {
   name: "discourse-simple-theme-topic-list",
 
   initialize() {
-    withPluginApi("1.35.0", (api) => {
+    withPluginApi((api) => {
       api.registerValueTransformer(
         "topic-list-columns",
         ({ value: columns }) => {
